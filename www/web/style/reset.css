@@ -1,0 +1,954 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0; padding:0;vertical-align:middle;border:0;-webkit-tap-highlight-color:transparent; outline: none;}
+.clearfix:after{ content: ''; width: 0; height: 0; display: block; visibility: hidden; clear:both;}
+img{ vertical-align:middle; border:0;}
+a{ text-decoration:none; color: #666;}
+li{ list-style:none;}
+body{ background-color: #FAFAFA;}
+input,select{-webkit-appearance:none; outline:none;   border-radius:0;border:none;}
+select{ background-color: transparent; -webkit-appearance:none;}
+.box{max-width:750px;width:100%; margin:0 auto;}
+
+/*下面三句为去除input 类型为number的右侧加减数字箭头*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+
+.ubb,.ubr,.ubl,.ubt{
+	position:relative;
+}
+.ubt:after{
+	display:block;
+	content:"";
+	position:absolute;
+	width:100%;
+	height:1px;
+	background-color:#ebebeb;
+	top:0;
+	right:0;
+	bottom:auto;
+	left:0;
+	z-index:15;
+	-webkit-transform-origin:50% 0;
+	transform-origin:50% 0;
+}
+.ubb:after{
+	display:block;
+	content:"";
+	position:absolute;
+	width:100%;
+	height:1px;
+	background-color:#ebebeb;
+	top:auto;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index:15;
+	-webkit-transform-origin:50% 100%;
+	transform-origin:50% 100%;
+}
+.ubr:after{
+	display:block;
+	content:"";
+	position:absolute;
+	width:1px;
+	height:100%;
+	background-color:#ebebeb;
+	top:0;
+	right:0;
+	bottom:0;
+	left:auto;
+	z-index:15;
+	-webkit-transform-origin:100% 50%;
+	transform-origin:100% 50%;
+}
+.ubl:after{
+	display:block;
+	content:"";
+	position:absolute;
+	width:1px;
+	height:100%;
+	background-color:#ebebeb;
+	top:0;
+	right:0;
+	bottom:0;
+	left:auto;
+	z-index:15;
+	-webkit-transform-origin:0 50%;
+	transform-origin:0 50%;
+}
+@media only screen and (-webkit-min-device-pixel-ratio:2){
+	.ubb:after,.ubt:after{
+		-webkit-transform:scaleY(.5);
+		transform:scaleY(.5);
+	}
+	.ubr:after,.ubl:after{
+		-webkit-transform:scaleX(.5);
+		transform:scaleX(.5);
+	}
+}
+@media only screen and (-webkit-min-device-pixel-ratio:3){
+	.ubb:after,.ubt:after{
+		-webkit-transform:scaleY(.33);
+		transform:scaleY(.33);
+	}
+	.ubr:after,.ubl:after{
+		-webkit-transform:scaleX(.33);
+		transform:scaleX(.33);
+	}
+}
+
+
+/******************************************编辑收货地址**************************************************/
+
+/*地址编辑*/
+.b_edit_add{ margin-top: .25rem;}
+.b_edit_add .ubb{ width: 100%; height: 1.2rem; background-color: #fff; padding: .2rem .48rem; box-sizing: border-box; display: block; position: relative;}
+.b_edit_add .ubb span{ width: 25%; font-size: .3rem; font-family: "Microsoft Yahei"; color: #212121; line-height: .8rem; display:inline-block; float: left; white-space: nowrap;}
+.b_edit_add .ubb span.teshu{ width: 30%;}
+.b_edit_add .ubb input{ width: 75%; padding-left: 3%; box-sizing: border-box; font-size: .28rem; font-family: "Microsoft Yahei"; color: #212121; line-height: .8rem; display:inline-block; float: left;}
+.b_select{ width: 75%; float:left; height: .8rem; }
+.b_select select{ width: 33.33%; display: block; float: left; height: .8rem; font-size: .3rem; font-family: "Microsoft Yahei";}
+.b_edit_add .ubb input.b_witharrow{ text-align: right;}
+.b_edit_add textarea{ width: 100%; min-height: 2rem; resize: none; background-color: #fff; display: block; padding: .3rem .6rem; box-sizing: border-box; font-size: .3rem; font-family: "Microsoft Yahei"; color: #212121; line-height: .8rem;}
+.b_delateall{ margin-top: 1rem;}
+.b_delateall span.b_removeall{ color: #36C150;}
+.b_edit_add .ubb .ubb{ width: 25%; font-size: .3rem; font-family: "Microsoft Yahei"; color: #212121; line-height: .8rem; display:inline-block; float: left;}
+.b_edit_add .ubb .help-block{position: relative; top: -.1rem; color: #ef3030;}
+
+/******************************************个人中心**************************************************/
+/*头部*/
+.b_nav1{ width: 100%; height: .88rem; background-color: #fff; padding: 0 .28rem; box-sizing: border-box; position: relative; overflow: hidden;}
+.fixednav{ position: fixed; top: 0; left: 0; right: 0; z-index: 999;}
+.b_nav1 a.b_fanhui { width: 3.5%; height: .88rem; float: left; display: block;}
+.b_nav1 a img{ width:100%; display: block; margin-top: .25rem;}
+.b_nav1 h5{ width: 2.8rem; text-overflow:ellipsis; overflow: hidden; white-space: nowrap; text-align: center; font-size: .34rem; font-family: "Microsoft Yahei"; color: #212121; line-height: .88rem; font-weight: normal;position: absolute; left: 50%; top: 0; margin-left: -1.4rem;}
+.b_nav1 span{ font-size: .34rem; font-family: "Microsoft Yahei"; color: #fff; line-height: .88rem; float: right; display: block;}
+.b_nav1 span a{ color: #fff;}
+.b_nav1 span.b_red{ color: #fff;}
+.b_nav1 span img{ width: 50%;}
+.b_nav1 button{ font-size: .34rem; font-family: "Microsoft Yahei"; color: #fff; line-height: .88rem; float: right; background: none; }
+/*信息编辑*/
+.b_per_con1{ margin: .23rem 0;}
+.b_per_con a{ width: 100%; height: 1.2rem; display: block; background-color: #fff; padding: .35rem .24rem; box-sizing: border-box; background-image: url(../images/b_arrow_right_03.png); background-repeat: no-repeat; background-size: 3.5%; background-position: 95% .3rem;}
+.b_per_con a .b_file_select{ width: 100%; height: 100%; opacity: 0; position: absolute; left: 0; top: 0; z-index: 100;}
+.b_per_con a span:first-child{ float: left; font-size: .34rem; font-family: "Microsoft Yahei"; color: #212121; line-height:.5rem;  }
+.b_per_con a div.avator{ width: .73rem; height: .73rem; border-radius: 50%; float: right; margin-right: .7rem; overflow: hidden; margin-top: -.12rem;}
+.b_per_con a div.avator img{ width: 100%; display: block;}
+.b_per_con a span.b_right_side{ float: right; font-size: .34rem; font-family: "Arial"; color: #adadad; line-height:.5rem; margin-right: .7rem;}
+.b_log_out1{ width: 90%; height: 1rem; display: block; margin: .5rem auto; background-color: #cc1000; padding: 0.15rem 0.24rem; box-sizing: border-box; text-align: center; font-size: 0.35rem; line-height: 0.7rem; color: #fff; font-family: 'Microsoft Yahei'; border-radius: .1rem;}
+
+/******************************************设置新密码**************************************************/
+.b_magt { margin-top:.5rem;}
+.b_magt1 { margin-top:.25rem;}
+.b_reset_code li{ width: 100%; height: 1.2rem; background-color: #fff; padding: .35rem .24rem; box-sizing: border-box;}
+.b_reset_code li input{ width: 100%; height: 100%; display: block; font-size: .34rem; font-family: "Arial"; color: #333; line-height:.5rem;}
+.b_confrim{ width: 87%; display: block; margin: .68rem auto .34rem; border-radius: .1rem; padding: .28rem 0; background-color: #cc1000;font-size: .4rem; font-family: "Microsoft Yahei"; color: #fff; text-align: center;line-height:.4rem;}
+.b_error_tip{ width: 32%; height: .68rem; background-color: rgba(0,0,0,.68); font-size: .26rem; font-family: "Microsoft Yahei"; color: #fff; text-align: center;line-height:0.68rem; border-radius: .1rem;position: fixed; left: 34%; top: 70%;}
+.b_forget_code{ font-size: .25rem; font-family: "Microsoft Yahei"; color: #666; text-align: center;line-height:.25rem; position: fixed; bottom: 1rem; left: 0; right: 0; display: none;}
+
+/******************************************个人商家入驻申请表**************************************************/
+.b_sline{ width: 70%; padding-left: .2rem; box-sizing: border-box; height:.8rem; display: block; float:left; font-size: .3rem;font-family: "Microsoft Yahei"; color: #212121; line-height:0.88rem; background-image: url(../images/down_arrow.png); background-repeat: no-repeat; background-size: 8%; background-position: 90% 50%; margin-top: -.05rem;}
+
+/******************************************修改昵称**************************************************/
+.b_rewrite{ width: 100%; padding: .4rem .24rem; background-color: #fff; box-sizing: border-box; position: relative;}
+.b_rewrite input{ width: 100%; height: 100%; display: block; font-size: .3rem; font-family: "Microsoft Yahei"; color: #333; line-height:.4rem;}
+.b_cancle_img{ width: 5%; position: absolute; right: 5%; top: 30%; display: none;}
+.b_cancle_img img{ width: 100%; height: 100%; display: block;}
+.b_write_tips{ font-size: .25rem; font-family: "Microsoft Yahei"; color: #999; line-height:0.8rem;padding-left: .24rem;}
+
+
+
+/******************************************绑定新手机**************************************************/
+.b_bindphone{ width: 100%; padding: .4rem .24rem; background-color: #fff; box-sizing: border-box; position: relative;}
+.b_bindphone input{ width: 100%; height: 100%; display: block; font-size: .3rem; font-family: "Microsoft Yahei"; color: #333; line-height:.4rem;}
+.b_getcode{ width:1.56rem; height: .6rem;  display: block; border: 2px solid #dbdbdb; border-radius: .1rem; font-size: .26rem; line-height: .6rem; color: #9c9c9c; text-align: center; font-family: 'Microsoft Yahei'; position: absolute; right: .48rem; top: .3rem;}
+
+
+/******************************************验证身份**************************************************/
+.b_getcode1{ color: #fd8470 !important;  border: 2px solid #fd8470 !important;}
+
+
+
+/******************************************收货地址管理**************************************************/
+
+.b_addlist dl dt{ width: 100%; padding: .3rem; background-color: #fff; box-sizing: border-box;}
+.b_addlist dl dt p.b_addp1{ font-size: .3rem; line-height: .32rem; color: #333; font-family: 'Microsoft Yahei';}
+.b_addlist dl dt p.b_addp1 span{ display: inline-block; font-size: .3rem; line-height: .5rem;   font-family: 'Arial'; margin-left: .5rem;}
+.b_addlist dl dt p.b_addp2{ font-size: .3rem; line-height: .5rem; color: #7a7a7a; font-family: 'Microsoft Yahei'; margin-top: .3rem;}
+
+.b_addlist dl dd{ width: 100%; padding:0 .3rem; background-color: #fff; box-sizing: border-box; position: relative;}
+.b_add_default span:nth-child(1){ width:.4rem; display: inline-block;}
+.b_add_default span:nth-child(1) img{ width:100%; display: block;}
+.b_add_default span:nth-child(2){ font-size: .3rem; line-height: .35rem; color: #7a7a7a; font-family: 'Microsoft Yahei';}
+.b_add_default span a{color:#7a7a7a}
+dd .b_add_default:nth-child(2){ position: absolute; left: 50%; top: -.05rem;}
+dd .b_add_default:nth-child(3){position: absolute; left: 75%; top: -.05rem;}
+.b_addlist { padding-bottom: 3rem;}
+.b_add_new_address{ width: 96%; height: .86rem; background-color: #cc0001; display: block;font-size: .3rem; line-height: .86rem; color: #fff; font-family: 'Microsoft Yahei'; text-align: center; padding-left: 10%; box-sizing: border-box; position: fixed; left: 2%; bottom: 0; z-index: 990; border-radius: .1rem; background-image: url(../images/cross_shape_03.png); background-repeat: no-repeat; background-size: 5%; background-position: 40% 42%;}
+/*弹窗*/
+.b_mask{ width: 100%; height:100%; background-color: rgba(0,0,0,.8); position: fixed; left: 0; top: 0; right: 0; bottom: 0; z-index: 999; display: none;}
+.b_pop_up{ width: 86%; height: 2.2rem; background-color: #fff; position: absolute; left:7%; top: calc(50% - 1.1rem); border-radius: .1rem; padding: .5rem; box-sizing: border-box; }
+.b_pop_up p{ font-size: .3rem; line-height: .35rem; color: #333; font-family: 'Microsoft Yahei';}
+.b_pop_up span{ font-size: .3rem; line-height: .35rem; color: #cc1000; font-family: 'Microsoft Yahei'; float: right; margin:.5rem .4rem 0 0;}
+
+
+/******************************************系统设置**************************************************/
+.b_log_out{ width: 100%; height: 1.1rem; display: block; background-color: #fff; padding: 0.35rem 0.24rem; box-sizing: border-box; text-align: center; font-size: 0.35rem; line-height: 0.4rem; color: #333; font-family: 'Microsoft Yahei';}
+
+
+/******************************************系统提示**************************************************/
+.b_oparea{ width: 100%; background-color: #fff; overflow: hidden;}
+.b_op_box{ width: 42%; margin: 1.1rem auto;}
+.b_op_icon{ width: 35%; float: left;}
+.b_op_icon img{ width: 100%; vertical-align: top;}
+.b_op_box p{ font-size: .36rem; line-height: 1.2rem; color: #333; font-family: 'Microsoft Yahei'; float: right;}
+
+
+
+/******************************************等待审核通知**************************************************/
+.b_waiting{ width: 25%; margin: 1rem auto .5rem;}
+.b_waiting img{ display: block; width: 100%;}
+.b_oparea p.p1{ font-size: .36rem; line-height: .5rem; color: #212121; font-family: 'Microsoft Yahei'; text-align: center;}
+.b_oparea p.p2{font-size: .26rem; line-height: .4rem; color: #666; font-family: 'Microsoft Yahei'; text-align: center;}
+
+
+
+
+/******************************************系统提示**************************************************/
+.b_rember{ width: 100%; padding: .5rem 0; background-color: #fff; box-sizing: border-box;}
+.b_rember p{ font-size: 0.3rem; line-height: .6rem; color: #333; font-family: 'Microsoft Yahei'; text-align: center;}
+.b_rember p span{ display: inline-block; font-family: 'Arial'; color: #999;}
+.b_rem_forget{ width: 64%; height: .7rem; margin: .5rem auto 0;}
+.b_rem_forget a{ width: 1.98rem; height: 100%; border-radius: 0.08rem; display: block; box-sizing: border-box; border: 1px solid #8f8f8f; font-size: 0.32rem; line-height: .7rem;  font-family: 'Microsoft Yahei'; text-align: center;}
+.b_rem_forget a:first-child{ color: #8f8f8f; border: 1px solid #8f8f8f; float: left;}
+.b_rem_forget a:last-child{ color: #cc0001; border: 1px solid #cc0001; float: right;}
+
+
+/******************************************修改支付密码----验证身份**************************************************/
+.b_pay_con{ width: 88%; height: 1rem;  margin: .5rem auto 0; box-sizing: border-box;}
+.b_pay_con label{ width: 16.66%; padding: .25rem; height: 1rem; display: block; box-sizing: border-box; float: left; border: 1px solid #8f8f8f; margin-left: -1px; position: relative; background-color: #fff;}
+.b_pay_con label input{ width: 100%; height: 100%; display: block; font-size: .5rem; text-align: center; line-height: .5rem; font-family: 'Microsoft Yahei';}
+.b_pay_con label div{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; font-size: 2rem; text-align: center; line-height: 1rem; font-family: 'Microsoft Yahei';}
+.b_rember p span.b_boldfont{ font-weight: bold;  color: #333; margin-top: -.08rem;}
+.hide{ display: none !important;}
+.show{ display: block !important;}
+
+
+/******************************************我的订单**************************************************/
+
+.b_order_cont{ position: relative; padding-top: .25rem; box-sizing: border-box;}
+/*订单列表分类*/
+.zhanwei{ width: 100%; height: 1rem; display: none;}
+.b_myorder1{ width: 100%; height: 1rem; background-color: #fff; padding: 0 .24rem; box-sizing:border-box;}
+.b_myorder1 li{ width: 25%; height: 1rem; float: left; position: relative;}
+.b_myorder1 li a{ width: 100%; height: 100%; display:block; font-size: .3rem; line-height: 1rem; color: #212121; font-family: 'Microsoft Yahei'; text-align: center;}
+.b_myorder1 li a.b_bordertip{ color: #cc0001;}
+.b_myorder1 li a.b_bordertip:after{content: ''; width: 50%; height: 3px; position: absolute; left: 25%; bottom: 0; background-color: #cc0001;}
+/*订单列表*/
+.b_myorder2{ padding-bottom: 1rem;  background-color: #fff;}
+.b_myorder2 li{ margin-top:.25rem; overflow: hidden;}
+/*上*/
+.b_order_shop{ width: 100%; padding: 0 .48rem; background-color: #fff; box-sizing: border-box; border-bottom: 1px solid #ebebeb;}
+.b_order_shop h5{float: left; font-size: .3rem; max-width:45%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; line-height: .86rem; color: #212121; font-family: 'Microsoft Yahei'; padding-left: .3rem; font-weight: normal;}
+.b_order_shop .b_homeico{ width:.28rem; height: .25rem; float: left; margin-top:.3rem; }
+.b_order_shop .b_homeico img{width:100%; height:100%; display: block;}
+.b_order_shop .b_line_up{ display:block; margin-left: .2rem; margin-top: .25rem; float: left; padding: .05rem .12rem; border: 1px solid #cc0001; border-radius: .05rem; font-size: .24rem; line-height: .25rem; color: #cc0001; font-family: 'Microsoft Yahei';}
+.b_order_shop .b_line_down{ display:block; margin-left: .2rem; margin-top: .25rem;  float: left; padding: .05rem .12rem; border: 1px solid #92cbfb; border-radius: .05rem; font-size: .24rem; line-height: .25rem; color: #92cbfb; font-family: 'Microsoft Yahei';}
+.b_order_shop p{ float: right; height: .86rem;}
+.b_order_shop p.b_success span:first-child{ font-size: .26rem; line-height: .86rem; color: #72c963; font-family: 'Microsoft Yahei'; display:block; float: left;}
+.b_order_shop p.b_un-success span:first-child{ font-size: .26rem; line-height: .86rem; color: #cc0001; font-family: 'Microsoft Yahei'; display:block; float: left;}
+.b_order_shop p.b_success span:nth-child(2){ display: block; float: right;height:.86rem; margin-left: .25rem;}
+.b_order_shop p.b_success span:nth-child(2) img{ display: block; width: 60%; margin-top: .25rem; float: right;}
+/*中*/
+.b_order_detail{ width: 100%; padding: .2rem .48rem; background-color: #fff; box-sizing: border-box; border-bottom: 1px solid #ebebeb; }
+.b_good_img{ width:23%; height: 1.4rem; border-radius: .06rem; overflow: hidden; float: left;}
+.b_good_img img{ width: 100%; }
+
+.b_good_name{ width: 46%; float: left; padding-left: .25rem; box-sizing: border-box; overflow: hidden;}
+.b_good_name p{ font-size: .3rem; line-height: .6rem; color: #212121; font-family: 'Microsoft Yahei'; }
+.b_good_name span{ font-size: .26rem; line-height: .42rem; color: #8f8f8f; font-family: 'Microsoft Yahei'; display: block; }
+
+.b_good_price{width: 30%; float: right; position: relative;}
+.b_good_price p{ font-size: .3rem; line-height: .7rem; color: #cc0001; font-family: 'Arial'; text-align: right;}
+.b_good_price span{ font-size: .26rem; line-height: .3rem; color: #8f8f8f; font-family: 'Arial'; display: block; padding-left: 0.2rem;}
+/*下*/
+.b_order_total{ width: 100%; padding: 0 .48rem; background-color: #fff; box-sizing: border-box; border-bottom: 1px solid #ebebeb;}
+.b_order_total p{font-size: .3rem; line-height: .7rem; color: #212121; font-family: 'Microsoft Yahei'; text-align: right; white-space: normal;}
+/*下下*/
+.b_order_after{ width: 100%; height: 1.1rem; padding: 0.2rem .48rem 0.2rem 0.24rem; background-color: #fff; box-sizing: border-box; border-bottom: 1px solid #ebebeb;}
+.b_order_after a.b_buy_again{ color: #cc0001; border: 1px solid #cc0001; margin-left: .2rem; padding: .15rem .28rem; display: block; float: right; font-size: .3rem; line-height: .3rem; font-family: 'Microsoft Yahei'; border-radius: .08rem;}
+.b_order_after a.b_refund{ color: #8f8f8f; border: 1px solid #8f8f8f; margin-left: .2rem; padding: .15rem .28rem; display: block; float: right; font-size: .3rem; line-height: .3rem; font-family: 'Microsoft Yahei'; border-radius: .08rem;}
+/*顶部订单分类*/
+.b_mask1{ width: 100%; height: 92%; background-color: rgba(0,0,0,.8); position: fixed; left: 0; top: 8%; right: 0; bottom: 0; z-index: 999; display: none;}
+.b_order_list{ width: 100%; padding: .4rem .48rem 0; background-color: #fff; box-sizing: border-box; position:absolute; left: 0; top:0; right: 0;}
+.b_order_list a{ width: 20%; height: .56rem; float: left; border: 1px solid #8f8f8f; border-radius: .08rem; font-size: .26rem; line-height: .55rem; font-family: 'Microsoft Yahei'; color: #8f8f8f; text-align: center; box-sizing: border-box; display: block; margin:0 0 .4rem 6.3%;}
+.b_order_list a:first-child{ margin-left: 0;}
+.b_order_list a:nth-child(4n+1){ margin-left: 0;}
+
+
+.b_good_price .shop-arithmetic {position:absolute;right:0;top:.8rem;width:84px;box-sizing:border-box;white-space:nowrap;height:24px;border:1px solid #e0e0e0;}
+.b_good_price .shop-arithmetic a{display:block;width:23px;height:22px;line-height:22px;text-align:center;background:#fff;font-size:16px; float: left;}
+.b_good_price .shop-arithmetic .minus{border-right:1px solid #e0e0e0;}
+.b_good_price .shop-arithmetic .failed{color:#d1d1d1;}
+.b_good_price .shop-arithmetic .plus{border-left:1px solid #e0e0e0;}
+.b_good_price .shop-arithmetic .num{width:32px;text-align:center;border:none;display: block;height:22px;box-sizing:border-box;vertical-align:top;font-size:14px; color: #666; float: left; padding-left: 0; line-height: 24px;}
+
+.b_no_orderpic{ width:50%; height:auto;margin: 1rem auto;}
+.b_no_orderpic img{ width:100%; display:block;}
+.b_noop_tip{font-size: .35rem; line-height: .4rem; color: #666; font-family: 'Microsoft Yahei'; text-align:center;}
+
+/******************************************劵码详情**************************************************/
+.b_my_ticket{ width: 96%; overflow: hidden; margin: .25rem auto 0; padding: .6rem .6rem 2.5rem; box-sizing: border-box; background-image: url(../images/b_tick_bg_03.png); background-repeat: no-repeat; background-size: 100% auto; background-position: 0 0; position: relative;}
+.b_my_ticket h5{ font-size: .3rem; line-height: .86rem; color: #212121; font-family: 'Microsoft Yahei'; padding-left: .6rem; background-image: url(../images/b_homedian_03.png); background-size: 5%; background-repeat: no-repeat; background-position:0 .27rem; position: relative; font-weight: normal;}
+.b_my_ticket .b_tname{ font-size: .3rem; line-height: .4rem; color: #212121; font-family: 'Microsoft Yahei'; padding-left: .5rem;}
+.b_my_ticket .b_tname span{ font-size: .3rem; color: #cc1000;display: block; float: right; margin-right: 0.6rem;}
+.b_my_ticket .b_second{ font-size: .3rem; line-height: .6rem; color: #8f8f8f; font-family: 'Microsoft Yahei'; padding-left: .6rem;}
+.b_my_ticket .b_third{ font-size: .3rem; line-height: .6rem; color: #212121; font-family: 'Microsoft Yahei'; padding-left: .6rem;}
+.b_qrcode_detail{ position: relative;}
+.b_qrcode_detail dt{ width: 54%; margin: 0 auto; margin-top: 1rem;}
+.b_qrcode_detail dt img{ display: block; width: 100%;}
+.b_qrcode_detail dd{ line-height: .6rem; font-family: 'Microsoft Yahei'; text-align: center;}
+.b_qrcode_detail dd.b_dd1{ font-size: .3rem; color: #212121; font-weight: bold; letter-spacing: 0.1rem;}
+.b_qrcode_detail dd.b_dd2{ font-size: .3rem; color: #adadad;}
+.b_qr_mask{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; background-color: rgba(255,255,255,.7); z-index: 10;}
+.b_stamper_success{ width: 20%; position: absolute; top: 2.9rem; right: .8rem; display: none; z-index: 90;}
+.b_stamper_success img{ width: 100%; display: block;}
+.b_stamper_refund{ width: 20%; position: absolute; top: 2.9rem; right: .8rem; display: none; z-index: 90;}
+.b_stamper_refund img{ width: 100%; display: block;}
+
+.b_tick_return{ width: 100%; padding: .2rem .48rem; box-sizing: border-box; background-color: #fff; position: fixed; bottom: 0; left: 0; z-index: 99;}
+.b_tick_return a{ font-size: .3rem; color: #8f8f8f; line-height: .3rem; font-family: 'Microsoft Yahei'; padding: .15rem; display: block; float: right; border: 1px solid #8f8f8f; border-radius: .1rem; margin-right: .3rem}
+.b_change_ticket{ width: 86%; background-color: #fff; position: absolute; left: 7%; top: 50%; margin-top: -3.4rem; border-radius: .08rem; padding: .32rem .32rem .7rem; box-sizing: border-box;}
+.b_change_ticket h4{ font-size: .35rem; color: #212121; line-height: .45rem; font-family: 'Microsoft Yahei'; text-align: center; font-weight: normal; border-bottom: 1px solid #ebebeb; padding-bottom: .4rem;}
+.b_close_btn{ width: .4rem; height: .4rem; position: absolute; right: .48rem; top: .35rem;}
+.b_close_btn img{ width: 100%; display: block;}
+.b_notices{ width: 82%; margin: .8rem auto .8rem;}
+.b_notices li div{ width:15%; float: left;}
+.b_notices li div img{ width: 100%; display: block;}
+.b_notices li p{ width:78%; float: right; font-size: .3rem; color: #7a7a7a; line-height: .44rem; font-family: 'Microsoft Yahei'; }
+
+
+/******************************************申请退款**************************************************/
+.b_appeal_cash{ width: 100%; background-color: #fff; }
+.b_appeal_cash li{ width: 100%; height: 1.2rem; padding:0 .48rem; box-sizing: border-box;}
+.b_appeal_cash li:after{ content: ''; width: 0; height: 0; display: block; visibility: hidden; clear:both;}
+.b_appeal_cash li p.p1{ font-size: .3rem; color: #8f8f8f; line-height: 1.2rem; font-family: 'Microsoft Yahei'; float: left; margin: 0;}
+.b_appeal_cash li p.p2{ color: #cc1000;}
+.b_appeal_cash li p.p3{ color: #cc1000;}
+.b_appeal_cash li p{ font-size: .3rem; color: #212121; line-height: 1.2rem; font-family: 'Microsoft Yahei'; margin-left: .3rem; float:left;}
+.b_refund_reason{ width: 100%; height: 5.6rem; overflow: scroll; background-color: #fff; padding:0 .48rem 1rem; box-sizing: border-box;}
+.b_refund_reason li{ width: 100%; height: .88rem; font-size: .3rem; color: #212121; line-height: .88rem; font-family: 'Microsoft Yahei'; position: relative;}
+.b_refund_reason li:first-child{ height: 1rem; line-height: 1rem; font-size: .32rem;}
+.b_refund_reason li .b_reason_choice{ width: 6%; position: absolute; right: .28rem; top: .23rem; z-index: 10;}
+.b_refund_reason li .b_reason_choice img{ display: block; width: 100%;}
+.b_appeal_btn{ width: 96%; height: .86rem; background-color: #cc1000; border-radius: .1rem; display: block; position: fixed; left: 2%; bottom: 0; font-size: .3rem; color: #fff; line-height: .86rem; font-family: 'Microsoft Yahei'; text-align: center; z-index: 99;}
+.b_at_least{ width: 86%; height: 2.2rem; background-color: #fff; border-radius: .1rem; position: absolute; left: 7%; top: 50%; margin-top: -1.1rem; padding: .56rem .6rem; box-sizing: border-box; }
+.b_at_least p{ font-size: .3rem; color: #212121; line-height: .3rem; font-family: 'Microsoft Yahei';}
+.b_at_least a{ font-size: .3rem; color: #cc1000; line-height: .3rem; font-family: 'Microsoft Yahei'; float: right; margin-top: .43rem;}
+
+
+/******************************************退款进度**************************************************/
+.b_appeal_cash li p span{ color: #8f8f8f; display: block; float: right; margin-left: .3rem;}
+.b_refund_box{ width: 100%; padding: .48rem; box-sizing: border-box; background-color: #fff;}
+.b_refund_box li{ width: 100%; min-height: 1.38rem; border-left: 2px solid #cc1000; position: relative; overflow: visible; box-sizing: border-box;}
+.b_refund_box li.b_pro_noborder{ border-left:2px solid transparent;}
+.b_pro_icon{ width: 5%; position: absolute; left: -.17rem; top: 0;}
+.b_pro_icon img{ width: 100%; display: block;}
+.b_refund_box li p.b_pro_status{ font-size: .3rem; color: #212121; line-height: .3rem; font-family: 'Microsoft Yahei'; position: absolute; left: .65rem; top: 0;}
+.b_refund_box li p.b_pro_time{ font-size: .28rem; color: #ababab; line-height: .6rem; font-family: 'Microsoft Yahei'; position: absolute; left: .65rem; top: .4rem;}
+
+/******************************************填写退货物流**************************************************/
+.b_transport{ width: 100%; background-color: #fff;}
+.b_transport li{ width: 100%; height: 1.2rem; padding: .45rem .48rem; box-sizing: border-box; position: relative;}
+.b_transport li p{ font-size: .3rem; color: #5c5c5c; line-height: .3rem; font-family: 'Microsoft Yahei'; float: left;}
+.b_transport li input{ font-size: .3rem; color: #212121; line-height: .3rem; font-family: 'Microsoft Yahei'; float: left; display: block; margin-left: .3rem;}
+.b_transport li select{ display: block; float: left; width: 80%; height: 100%; font-size: .3rem; color: #212121; line-height: .3rem; font-family: 'Microsoft Yahei'; background-color:transparent; border-color:transparent; -webkit-appearance: none; padding-left: .3rem;}
+.b_arrselect_down{ width: 3%; position: absolute; right: .6rem; top: .5rem; transform:rotate(90deg);}
+.b_arrselect_down img{ width: 100%; display: block;}
+.b_sub_traninfo{ width: 86%; display: block; margin: .68rem auto .34rem; border-radius: .1rem; padding: .28rem 0; background-color: #cc0001;font-size: .4rem; font-family: "Microsoft Yahei"; color: #fff; text-align: center;line-height:.4rem; position: fixed; left: 7%; bottom: .3rem;}
+
+/******************************************填写退货信息**************************************************/
+.b_nav1 span a.b_submit{ color: #fff; vertical-align: top; margin-right: .2rem;}
+.b_color_red{ color: #cc0001 !important;}
+.b_tuikuan{ width: 100%; height: 1.2rem; border: 1px solid #ebebeb; padding: 0 .48rem; box-sizing: border-box; position: relative;}
+.b_tuikuan p{ width: 25%; font-size: .3rem; color: #5c5c5c; line-height: 1.2rem; font-family: 'Microsoft Yahei'; float: left;}
+.b_tuikuan select{ width: 75%; height: 1.2rem; display: block; float: left; background-color: transparent; border-color:transparent; -webkit-appearance:none; font-size: .3rem; color: #212121; line-height: 1.2rem; font-family: 'Microsoft Yahei';outline:none;}
+.b_arrow_r{ width: 3%; position: absolute; right: .48rem; top: .4rem;}
+.b_arrow_r img{ width: 100%; display: block;}
+.b_letter{ width: 100%;  padding: .24rem 0; box-sizing: border-box; background-color: #fafafa; position: relative;}
+.b_letter .b_feedback{ width: 100%; min-height: 2.5rem; display: block; resize: none; font-size: .3rem; color: #212121; line-height: .52rem; font-family: 'Microsoft Yahei';background-color: #fafafa; outline:none; padding: 0 .24rem .3rem; box-sizing: border-box;}
+.b_word_number{ width: 25%; height: .3rem; position: absolute; right: .28rem; bottom: .4rem;font-size: .3rem; color: #212121; line-height: .52rem; font-family: 'Arial'; }
+.b_word_number p{ display: inline-block;}
+.b_upload_area{ width: 100%; background-color: #fff; padding: .48rem  .48rem; box-sizing: border-box;}
+.b_upload_area p{ font-size: .3rem; color: #212121; line-height: .52rem; font-family: 'Microsoft Yahei';}
+.b_upload_btn{ width: .98rem; height: .98rem; border: 1px dashed #8f8f8f; border-radius: .06rem; position: relative; background-image:url(../images/add_photo_03.png); background-repeat: no-repeat; background-size: 50%; background-position: 50% 50%; margin: .5rem .2rem 0 0; display: inline-block; }
+.b_upload_btn input{ width: 100%; height: 100%; position: absolute; left:0; top: 0; z-index: 100; opacity: 0;}
+.b_upload_btn p{ font-size: .3rem; color: #5c5c5c; line-height: 1.2rem; font-family: 'Microsoft Yahei'; text-align: center; margin-top: -.85rem; white-space: nowrap; overflow: visible;}
+.b_clasue_area{ padding:.5rem .48rem 1rem; box-sizing:border-box; width: 100%; height: .5rem;}
+.b_yes_no{ width: 5%; height: .5rem; float: left;}
+.b_yes_no img{ width: 100%; display: block; margin-top: .1rem}
+.b_clause{ font-size: .3rem; color: #212121; line-height: .5rem; font-family: 'Microsoft Yahei'; float: left; margin-left: .1rem}
+.b_clasue_area a{ font-size: .3rem; color: #3838df; line-height: .5rem; font-family: 'Microsoft Yahei'; display: block; float: left;}
+
+.b_good_type{ padding-bottom: 1rem;}
+.b_good_type p{ font-size: .34rem; color: #212121; line-height: .8rem; font-family: 'Microsoft Yahei';}
+.b_good_type1{ width: 100%; height: .8rem; display: block; font-size: .32rem; color: #212121;line-height: .8rem; background-image: url(../images/b_arrow_right_03.png); background-size: 3%; background-position: 95% 50%; background-repeat: no-repeat;}
+.b_good_type2{ width: 100%; display: block;}
+.b_good_type2 ul{ width: 100%; display: none; }
+.b_good_type2 ul li{ float: left; padding-right: .4rem;font-size: .32rem; color: #212121;line-height: .8rem;}
+.b_good_type2 ul li input{ width: .32rem; height: .32rem; border: 1px solid #cdcdcd; margin-right: .1rem;}
+
+
+/******************************************评价**************************************************/
+.b_goods_feedback{ width:100%; padding: .2rem .48rem; box-sizing: border-box; background-color: #fff;}
+.b_gpic{ width: .96rem; height: .96rem; border-radius: .06rem; overflow: hidden; float: left;}
+.b_gpic img{ width: 100%; display: block;}
+.b_gname{ float: left; margin-left: .3rem; max-width: 5rem; overflow: hidden;}
+.b_gname h4{ font-size: .3rem; color: #212121; line-height: .46rem; font-family: 'Microsoft Yahei'; font-weight: normal; text-overflow: ellipsis; white-space: nowrap;}
+.b_gname p{ font-size: .28rem; color: #8f8f8f; line-height: .56rem; font-family: 'Microsoft Yahei';}
+.b_heart_break{ float: right;margin-top: .3rem}
+.b_heart_break li{ width: .38rem; height: .32rem; float: left; margin-right: .1rem; }
+.b_heart_break li img{ width: 100%; display: block;}
+.b_anonymity{ position: relative; padding: 0 .48rem .25rem .48rem; box-sizing: border-box; width: 100%;}
+.b_anonymity p{ font-size: .3rem; text-indent: .9rem; color: #212121; line-height: .5rem; font-family: 'Microsoft Yahei'; }
+.b_checked_icon{ width: 5.5%; height: 5.5%; position: absolute; left: .48rem; top: 0;}
+.b_checked_icon img{ width: 100%; display: block;}
+.b_fbtime{ font-size: .26rem; color: #666; line-height: .48rem; font-family: 'Microsoft Yahei';}
+.b_magt3{ margin-top: .3rem;}
+
+
+/******************************************查看评价**************************************************/
+.b_fedback_prev{ font-size: .3rem; color: #212121; line-height: .48rem; font-family: 'Microsoft Yahei';}
+.b_fbtime{ font-size: .26rem; color: #666; line-height: .48rem; font-family: 'Microsoft Yahei';}
+.b_magt3{ margin-top: .3rem;}
+.b_letter1{ width:100%; padding: .2rem .48rem .4rem; box-sizing: border-box; background-color: #fff; margin: 0 auto;}
+.b_zhuiping{ font-size: .3rem; color: #cc1000; line-height: .48rem; font-family: 'Microsoft Yahei'; margin-top: .34rem;}
+.b_letter_in{ border-top: 1px solid #dcdcdc;}
+.b_merchant_replay{ width: 100%; padding: .1rem; background-color: #f4f4f4; box-sizing: border-box; margin: 0 auto;}
+.b_merchant_replay p{ font-size: .3rem; color: #cc1000; line-height: .48rem; font-family: 'Microsoft Yahei';}
+
+/******************************************选择付款方式**************************************************/
+.b_zhifulist { overflow: hidden; }
+.b_zhifulist li{ width: 100%; padding: .35rem .48rem; background-color: #fff; border-bottom: 1px solid #ebebeb;}
+.b_zhifulist li a{ width:100%; height: 100%; display: block;}
+.b_zhifulist li:after{ content: ''; display: block; width: 0; height: 0; visibility: hidden; clear: both;}
+.b_zhifulist li .b_zfselect{ width:.48rem; height: .48rem; float: left;}
+.b_zhifulist li .b_zfselect img{ width: 100%; display: block;}
+.b_zhifulist li .b_zficon{ width: .54rem; height: .54rem; float: left; margin:0 .5rem;}
+.b_zhifulist li .b_zficon img{ width: 100%; display: block;}
+.b_zhifulist li p{ font-size: .3rem; color: #212121; line-height: .54rem; font-family: 'Microsoft Yahei'; float: left;}
+
+
+/******************************************确认交易**************************************************/
+.b_zhifulist li p.p1{ font-size: .3rem; color: #5c5c5c; line-height: .32rem; font-family: 'Microsoft Yahei'; float: left;}
+.b_zhifulist li p.p2{ font-size: .3rem; color: #212121; line-height: .32rem; font-family: 'Microsoft Yahei'; float: left; margin-left: .45rem;}
+.b_change_ticket .b_money{ font-size: .6rem; color: #212121; line-height: 1.3rem; font-family: 'Arial'; text-align: center; font-weight: 600; border-bottom: 1px solid #ebebeb;}
+.b_lingqian{ width: 100%; padding: .38rem 0; display: block; border-bottom: 1px solid #ebebeb; background-image: url(../images/b_arrow_right_03.png); background-repeat: no-repeat; background-size: 8%; background-position: 85% 5%;}
+.b_lingqian{ width: 100%; padding: .38rem 0; display: block; border-bottom: 1px solid #ebebeb; background-image: url(../images/b_arrow_right_03.png); background-repeat: no-repeat; background-size: 4%; background-position: 90% 50%;}
+.b_lingqian div{ width: .55rem; float: left; margin: 0 .5rem}
+.b_lingqian div img{ width: 100%; display: block;}
+.b_lingqian p{ font-size: .38rem; color: #5c5c5c; line-height: .55rem; font-family: 'Microsoft Yahei'; float: left;}
+.b_zf_code{ width: 100%; height: .87rem; border: 1px solid #8f8f8f; margin-top: .6rem; box-sizing: border-box;}
+.b_zf_code input{ width: 16.66%; height: 100%; display: block; float: left; border-left: 1px solid #8f8f8f; box-sizing:border-box; font-size: .35rem; color: #5c5c5c; line-height: 1; font-family: 'Arial'; text-align: center;}
+.b_zf_code input:first-child{ border-left:0;}
+
+/******************************************购物车**************************************************/
+/*购物车*/
+.b_market{ padding-bottom: 3rem;clear:both;overflow:hidden;height:auto;}
+.shop-group-item{ margin-bottom:5px;}
+.shop-group-item ul li{border-bottom:1px solid #f4f4f4;}
+.shop-group-item ul li>a{ width: 100%; height: 100%; display: block;}
+
+.shop-name{background:#fff;height:35px;line-height:35px;padding:0 15px;position:relative;}
+.shop-name h4{float:left;font-size:14px;background:url(../images/b_homedian_03.png) no-repeat left center;background-size:20px 20px;padding-left:25px;margin-left: 28px;}
+
+.shop-info{ background:#fff;height:150px;padding:0 15px;position:relative;}
+.shop-info .checkbox{background:url(../images/address_selected_03.png) no-repeat left center;background-size:20px 20px;position:absolute;top:50%;left:15px;margin-top:-60px;width:20px;height:120px;}
+.shop-info .checkbox1{background:url(../images/address_noselect_03.png) no-repeat left center;background-size:20px 20px;position:absolute;top:50%;left:15px;margin-top:-60px;width:20px;height:120px;}
+.shop-info .shop-info-img{position:absolute;top:15px;left:45px;width:90px;height:90px;}
+.shop-info .shop-info-img img{width:100%;height:100%;}
+.shop-info .shop-info-text{margin-left:130px;padding:25px 0;}
+.shop-info .shop-info-text .edit_order{font-size:14px; position: absolute; right: 15px; top: 5px;}
+.shop-info .shop-info-text .edit_delate{ width: 100px; height: 14px; position: absolute; right: 15px; bottom: 15px;}
+.shop-info .shop-info-text .edit_delate p{ padding: 0 5px; font-size:14px; float: left; border: 1px solid #FB081A;color: #FB081A; margin-right: 10px;}
+.shop-info .shop-info-text .edit_delate p:nth-child(2){ padding: 0 5px; font-size:14px; float: left; border: 1px solid #cc1000;color: #cc1000; margin-right: 10px;}
+.shop-info .shop-info-text h4{ font-size:14px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow: hidden;font-weight: normal;}
+.shop-info .shop-info-text .shop-brief{height:25px;line-height:25px;font-size:12px;color:#81838e;white-space:nowrap;}
+.shop-info .shop-info-text .shop-brief span{display:inline-block;margin-right:8px;}
+.shop-info .shop-info-text .shop-price{height:24px;line-height:24px;position:relative;}
+.shop-info .shop-info-text .shop-price .shop-pices {color:#cc1000;font-size:16px;}
+.shop-info .shop-info-text .shop-arithmetic{position:absolute;right:0px;top:0;width:84px;box-sizing:border-box;white-space:nowrap;height:100%;border:1px solid #e0e0e0;}
+.shop-info .shop-info-text .shop-arithmetic a{display:block;width:23px;height:22px;line-height:22px;text-align:center;background:#fff;font-size:16px; float: left;}
+.shop-info .shop-info-text .shop-arithmetic .minus{border-right:1px solid #e0e0e0;}
+.shop-info .shop-info-text .shop-arithmetic .failed{color:#d1d1d1;}
+.shop-info .shop-info-text .shop-arithmetic .plus{border-left:1px solid #e0e0e0;}
+.shop-info .shop-info-text .shop-arithmetic .num{width:32px;text-align:center;border:none;display: block;height:100%;box-sizing:border-box;vertical-align:top;font-size:14px; color: #666; float: left; }
+.shopPrice{background:#fff;height:35px;line-height:35px;padding:0 15px;text-align:right;font-size:14px; color: #666;}
+.shopPrice span{color:#cc1000;}
+
+input[type="checkbox"]{-webkit-appearance:none;outline: none;}
+input.check{background:url(../images/address_noselect_03.png) no-repeat center left;background-size:20px 20px;position:absolute;top:50%;left:10px;margin-top:-18px;width:20px;height:35px;}
+input.check:checked{background:url(../images/address_selected_03.png) no-repeat center left;background-size:20px 20px;}
+input.goodsCheck:checked{background:url(../images/address_selected_03.png) no-repeat center left;background-size:20px 20px;}
+input.check:checked{background:url(../images/address_selected_03.png) no-repeat center left;background-size:20px 20px;}
+.shop-info .checked{background:url(../images/address_selected_03.png) no-repeat left center;background-size:20px 20px;position:absolute;top:50%;left:15px;margin-top:-18px;width:20px;height:35px;}
+
+
+
+.payment-bar{clear:both;overflow:hidden;width:100%;height:58px;position:fixed;bottom:1.1rem;border-top:1px solid #e0e0e0;background:#fff;max-width: 750px;}
+.payment-bar1{bottom:0 !important;}
+.payment-bar .all-checkbox{float:left;line-height:58px;padding-left:40px; font-size:14px; color: #666;}
+.payment-bar .shop-total{float:left;-webkit-box-flex:1.0;box-flex:1.0;margin:9px 20px 9px 35px;}
+.payment-bar .shop-total1{ float:right !important; margin-top: 14px;}
+.payment-bar .shop-total p{display:block;font-size:16px; height: 20px; line-height: 20px;}
+.payment-bar .shop-total p span{font-size:18px; line-height: 20px; float: right;}
+.payment-bar .shop-total span{display:block;font-size:12px; color: #cc1000;}
+.payment-bar .settlement{display:inline-block;float:right;width:100px;height:58px;line-height:58px;text-align:center;color:#fff;font-size:16px;background:#cc1000;}
+/*底部切换区*/
+.b_bottom{ width: 100%; background-color: #fff; position: fixed; left: 0; bottom: 0;}
+.b_bottom a{ width: 25%; height: 1.1rem; display: block; float: left; border-top: 1px solid #ebebeb; box-sizing: border-box; font-size: .2rem; line-height: 1.7rem; color: #a7a7a7; font-family: 'Microsoft Yahei'; text-align: center; overflow: hidden;}
+.b_bottom a.b_fujin{ background-image: url(../images/around_03.png); background-repeat: no-repeat; background-size: 20%; background-position: 48% 25%;}
+.b_bottom a.b_zhuye{ background-image:url(../images/home_03.png); background-repeat: no-repeat; background-size: 25%; background-position: 48% 25%;}
+.b_bottom a.b_gouwuc{ background-image: url(../images/cart_03.png); background-repeat: no-repeat; background-size: 25%; background-position: 48% 25%;}
+.b_bottom a.b_wo{ background-image: url(../images/me_03.png); background-repeat: no-repeat; background-size: 20%; background-position: 48% 25%;}
+.b_bottom a.b_fujin1{ background-image: url(../images/around1_03.png); background-repeat: no-repeat; background-size: 20%; background-position: 48% 25%; color: #cc1000 !important;}
+.b_bottom a.b_zhuye1{ background-image:url(../images/home1_03.png); background-repeat: no-repeat; background-size: 25%; background-position: 48% 25%; color: #cc1000 !important;}
+.b_bottom a.b_gouwuc1{ background-image: url(../images/cart1_03.png); background-repeat: no-repeat; background-size: 25%; background-position: 48% 25%; color: #cc1000 !important;}
+.b_bottom a.b_wo1{ background-image: url(../images/me1_03.png); background-repeat: no-repeat; background-size: 20%; background-position: 48% 25%; color: #cc1000 !important;}
+
+
+
+
+/******************************************确认订单**************************************************/
+.b_bang_phone{ width: 100%; padding: .45rem .48rem; display: block; overflow: hidden; background-color: #fff; box-sizing: border-box; background-image: url(../images/b_arrow_right_03.png); background-repeat: no-repeat; background-size: 3%; background-position: 90% 48%;}
+.b_bang_phone .p1{ font-size: .3rem; line-height: .35rem; color: #212121; font-family: 'Microsoft Yahei'; float:left;}
+.b_bang_phone .p2{ font-size: .3rem; line-height: .35rem; color: #8f8f8f; font-family: 'Microsoft Yahei'; float: right; margin-right: .6rem;}
+.b_pprice{ width: 100%; background-color: #fff; padding: 0 .48rem; box-sizing: border-box;}
+.b_pprice li{ width: 100%; padding: .45rem 0; box-sizing: border-box; border-bottom: 1px solid #ebebeb;}
+.b_pprice li:after{ content: ''; width: 0; height: 0; display: block; visibility: hidden; clear:both;}
+.b_pprice li p.p1{ font-size: .3rem; line-height: .35rem; color: #212121; font-family: 'Microsoft Yahei'; float:left;}
+.b_pprice li p.p2{ font-size: .3rem; line-height: .35rem; color: #212121; font-family: 'Arial'; float: right;}
+.b_pprice li p.p2 span{ color: #cc0001;}
+.b_pprice li input{ display: block; float: right; text-align: right; font-size: .3rem;}
+.b_pprice li .b_use_jifen{ width: 5%;float: left; margin-right: .3rem;}
+.b_pprice li .b_use_jifen img{ width: 100%; display: block; }
+.b_good_name1{ width: 89% !important;}
+
+.b_fukuan{ width: 100%; height: 1.2rem; padding: .48rem; box-sizing: border-box; background-color: #fff; position: fixed; left: 0; bottom: 0; z-index: 99; border-top: 1px solid #ebebeb;}
+.b_fukuan p{ font-size: .3rem; line-height: .3rem; color: #cc0001; font-family: 'Microsoft Yahei'; }
+.b_fukuan button{ width: 2rem; height: 1.2rem; background-color: #cc1000; font-size: .35rem; line-height: 1.2rem; color: #fff; font-family: 'Microsoft Yahei'; text-align: center; display: block; position: absolute; top: 0; right: 0; border-top: 1px solid #ebebeb; z-index: 100;}
+.b_bang_phone1{ margin-bottom: .25rem;}
+/*分享部分样式*/
+.am-share { font-size: 14px; border-radius: 0; bottom: 0; left: 0; position: fixed; text-align: center; -webkit-transform: translateY(100%); -ms-transform: translateY(100%); transform: translateY(100%); -webkit-transition: -webkit-transform 300ms; transition: transform 300ms ; width: 100%; z-index: 1110; background-color: #f8f8f8;}
+.am-modal-active { -webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0); }
+.am-modal-out { z-index: 1109; -webkit-transform: translateY(100%); -ms-transform: translateY(100%); transform: translateY(100%); }
+.am-share-title { background-color: #f8f8f8; border-bottom: 1px solid #fff; border-top-left-radius: 2px; border-top-right-radius: 2px; color: #555; font-weight: 400; margin: 0 10px; padding: 10px 0 0; text-align: center; }
+.am-share-title::after { border-bottom: 1px solid #dfdfdf; content: ""; display: block; height: 0; margin-top: 10px; width: 100%; }
+.am-share-footer { margin: 10px; }
+.am-share-footer .share_btn { color: #555;  display: block; width: 100%; background-color: #e6e6e6; border: 1px solid #e6e6e6; border-radius: 0; cursor: pointer;  font-size: 16px; font-weight: 400; line-height: 1.2; padding: 0.625em 0; text-align: center; transition: background-color 300ms ease-out 0s, border-color 300ms ease-out 0s; vertical-align: middle; white-space: nowrap;font-family:"微软雅黑";  }
+.am-share-sns { background-color: #f8f8f8; border-radius: 0 0 2px 2px; margin: 0 10px; padding-top: 15px; height:auto; zoom:1; overflow:auto; }
+.am-share-sns li { margin-bottom: 15px; display: block; float: left; height: auto;  width: 25%; }
+.am-share-sns a { color: #555; display: block; text-decoration:none; }
+.am-share-sns span { display: block; }
+.am-share-sns li i { background-position: center 50%; background-repeat: no-repeat; background-size: 36px 36px; color: #fff; display: inline-block; font-size: 18px; height: 36px; line-height: 36px; margin-bottom: 5px; width: 36px; }
+.box1 .sharebg { background-color: rgba(0, 0, 0, 0.6); bottom: 0; height: 100%; left: 0; opacity: 0; position: fixed; right: 0; top: 0; width: 100%; z-index: 1100; display:none; }
+.box1 .sharebg-active { opacity: 1; display:block; }
+
+
+
+/******************************************确认订单1**************************************************/
+.b_bang_phone .mizi .p1{ font-size: .3rem; line-height: .56rem; color: #212121; font-family: 'Microsoft Yahei'; float: none;}
+.b_bang_phone .mizi .p1 span{ font-size: .3rem; line-height: .56rem; color: #212121; font-family: 'Arial'; display: inline-block;}
+.b_bang_phone .mizi .p2{ font-size: .28rem; line-height: .52rem; color: #8f8f8f; font-family: 'Microsoft Yahei'; float: none;}
+.b_pprice li{ position: relative;}
+.b_pprice li .b_minus_plus{ width: 1.92rem; height: .48rem; border: 1px solid #8f8f8f; position: absolute; top: 32%; right: 0; font-size: .3rem; line-height: .48rem; color: #212121; font-family: 'Microsoft Yahei'; text-align: center;}
+.b_minus_plus span{ width: 33.33%; height: .48rem; display: block; float: left; box-sizing: border-box; border-left: 1px solid #8f8f8f;}
+.b_minus_plus span:first-child{ border: 0;}
+
+/******************************************退改签须知**************************************************/
+.b_tc_notice li{ width: 100%; padding: .46rem 1rem .46rem .48rem; box-sizing: border-box; background-color: #fff; border-bottom: 1px solid #ebebeb;}
+.b_tc_notice li:after{ content: ''; width: 0; height: 0; display: block; visibility: hidden; clear:both;}
+.b_no_left{ width: 19%; float:left;}
+.b_no_left span{ width: .8rem; height: .36rem; border-radius: .05rem; display: block; background-color: #f7a99d; font-size: .26rem; line-height: .36rem; color: #fff; font-family: 'Microsoft Yahei'; text-align: center;}
+.b_no_left span.b_spte{ background-color:#92cbfb; }
+.b_no_right{ width: 81%; float: left;}
+.b_no_right h3{ font-size: .3rem; line-height: .4rem; color: #212121; font-family: 'Microsoft Yahei'; font-weight: normal; margin-bottom: .2rem;}
+.b_no_right p{ font-size: .26rem; line-height: .46rem; color: #5c5c5c; font-family: 'Microsoft Yahei';}
+
+
+/******************************************今日爆款**************************************************/
+.b_baokuan { width: 100%; padding: 0 .28rem; box-sizing: border-box; overflow: hidden;}
+.b_baokuan li{ width: 100%; padding: .32rem; box-sizing: border-box; background-color: #fff; position: relative;}
+.b_baokuan li:after{ content: ''; width: 0; height: 0; display: block; visibility: hidden; clear:both;}
+.b_baokuan li:first-child{ background-image: url(../images/b_first_03.png); background-repeat: no-repeat; background-size: 8%; background-position: 95% 0;}
+.b_baokuan li:nth-child(2){ background-image: url(../images/b_second_03.png); background-repeat: no-repeat; background-size: 8%; background-position: 95% 0;}
+.b_baokuan li:nth-child(3){ background-image: url(../images/b_third_03.png); background-repeat: no-repeat; background-size: 8%; background-position: 95% 0;}
+.b_baokuan li a{ width: 100%; height: 100%; display: block;}
+
+.b_baokuan li .b_bk_img{ width: 34%; float: left;}
+.b_baokuan li .b_bk_img img{ display: block; width: 100%;}
+.b_baokuan li .b_bk_txt{width: 66%; float: left; padding-left: 8%; box-sizing: border-box;}
+.b_baokuan li h5{ font-size: .3rem; line-height: .3rem; color: #212121; font-family: 'Microsoft Yahei'; font-weight: normal; margin-top: .3rem;}
+.b_baokuan li p.p1{ font-size: .28rem; line-height: .75rem; color: #8f8f8f; font-family: 'Microsoft Yahei'; }
+.b_baokuan li p.p2{ font-size: .3rem; line-height: .45rem; color: #fd5439; font-family: 'Microsoft Yahei';}
+.b_bk_tips{ width: 100%; height: .28rem;}
+.b_bk_tips span{ padding: .06rem .16rem; background-color: #f16363; font-size: .22rem; line-height: .22rem; color: #fff; font-family: 'Microsoft Yahei'; text-align: center; display: block; float: left; border-radius: .06rem; margin-right: .05rem;}
+.b_bk_tips span.b_teshu{  background-color: #ffcc5e;}
+
+
+/******************************************店铺列表**************************************************/
+.b_shop_change { width: 100%; overflow: hidden;}
+.b_shop_change li{ width: 50%; height: .72rem; background-color: #fff; float: left; border-left: 1px solid #b0b1ac; box-sizing: border-box;}
+.b_shop_change li:first-child{ border: 0;}
+.b_shop_change li a{ width: 100%; height: 100%; background-color: #ebebeb; display: block; font-size: .3rem; line-height: .72rem; color: #666666; font-family: 'Microsoft Yahei'; text-align: center; text-indent: -.6rem; background-image: url(../images/b_ordlist_arrow_03.png); background-repeat: no-repeat; background-size: 8%; background-position: 70% 50%;}
+
+.b_shop_list{ width:100%; padding: 0 .24rem; box-sizing: border-box; background-color: #fff; overflow:hidden; }
+.b_shop_list li{ width: 100%; padding: .24rem 0; box-sizing: border-box; border-bottom: 1px solid #ebebeb;}
+.b_shop_list li:after{ content: ''; width: 0; height: 0; display: block; visibility: hidden; clear:both;}
+.b_shop1{ width: 23%; float: left;}
+.b_shop1 img{ width: 100%; display: block;}
+.b_shop2{ width: 52%; float: left; padding-left: .2rem; box-sizing: border-box;}
+.b_shop2 h4{ font-size: .3rem; line-height: .5rem; color: #212121; font-family: 'Microsoft Yahei'; font-weight: normal;}
+.b_shop2 .pingfen{ width: 100%; height: .28rem; margin: .18rem 0;}
+.b_shop2 .pingfen .b_heart_break{ float: left; margin: 0;}
+.b_heart_break li{ float: left; width:.28rem; height: .28rem; margin-right: .15rem; padding: 0; border: 0;}
+.b_heart_break li img{ display: block; width: 100%;}
+.pingfen span{ font-size: .26rem; line-height: .3rem; color: #666666; font-family: 'Microsoft Yahei'; float: left;}
+.b_shop2>p{ font-size: .24rem; line-height: .22rem; color: #666666; font-family: 'Microsoft Yahei';}
+.b_shop3{ width: 25%; float: left;}
+.b_shop3 p{ font-size: .22rem; line-height: .6rem; color: #212121; font-family: 'Microsoft Yahei'; text-align: center;}
+.b_shop3 p:first-child{ margin-top: .2rem;}
+
+.b_mask2{ width: 100%; height: calc(100% - 1.6rem); background-color: rgba(0,0,0,.8); position: fixed; left: 0; bottom: 0; z-index: 999; display: none;}
+.b_mask2 ul { width: 100%; height:85%; overflow-y: scroll; }
+.b_mask2 ul { display: none;}
+.b_mask2 ul li a{ padding: .2rem .24rem; box-sizing: border-box; width: 100%; background-color: #fff; border-bottom: 1px solid #ebebeb; display: block;}
+.b_mask2 ul li a:after{ content: ''; width: 0; height: 0; display: block; visibility: hidden; clear:both;}
+.b_mask2 ul li a p{  font-size: .3rem; line-height: .32rem; color: #212121; font-family: 'Microsoft Yahei'; }
+.b_mask2 ul li a p:nth-child(1){ float: left;}
+.b_mask2 ul li a p:nth-child(2){ float: right;}
+
+select option{ font-size: .3rem;}
+.b_get_yzm{ padding: .15rem; background-color: #fff; border: 1px solid #cc1000; border-radius: .1rem; display: block; position: absolute; top: .28rem; right: .28rem; font-size: .24rem; line-height: .22rem; color: #cc1000; font-family: 'Microsoft Yahei'; text-align: center;}
+
+
+
+/******************************************积分规则**************************************************/
+.b_rules{ width: 100%; padding: 0 .48rem; box-sizing: border-box; overflow: hidden;background-color: #fff;}
+.b_rules li{ width: 100%; padding: .3rem 0 .4rem 0; box-sizing: border-box; border-top: 1px solid #ebebeb;}
+.b_rules li:first-child{ border: 0;}
+.b_rules li:after{ content: ''; width: 0; height: 0; display: block; visibility: hidden; clear:both;}
+.b_rule1{ width: 16.8%; float: left;}
+.b_rule1 span{ width: .8rem; height: .36rem; margin-top: .05rem; background-color: #cc1000; display: block; border-radius: .06rem; font-size: .26rem; line-height: .36rem; color: #fff; font-family: 'Microsoft Yahei'; text-align: center;}
+.b_rule2{ width: 74%; float: left;}
+.b_rule2 h4{ font-size: .3rem; line-height: .4rem; color: #212121; font-family: 'Microsoft Yahei'; font-weight: normal;}
+.b_rule2 p{ font-size: .28rem; line-height: .42rem; color: #5c5c5c; font-family: 'Microsoft Yahei'; margin-top: .25rem;}
+.b_pprice_add li .b_minus_plus { position: absolute;top:65%;right:0;}
+.b_pprice_add{ padding:0%;width:100%; }
+.b_pprice_add li{ padding:0;}
+.b_good_name p,.b_good_name span{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+
+.z_rgba_mima .clearfix:after {
+	clear: both;
+}
+.z_rgba_mima .clearfix:before, .clearfix:after {
+	content: " ";
+	display: table;
+}
+.z_rgba_mima .sixDigitPassword-box {
+	cursor:text;
+	background: #fff;
+	outline: none;
+	position: relative;
+	padding: 8px 0;
+	height: 25px;
+	border: 1px solid #cccccc;
+	border-radius: 2px;
+}
+.z_rgba_mima .sixDigitPassword-box i {
+	float: left;
+	display: block;
+	padding: 4px 0;
+	height: 17px;
+	border-left: 1px solid #cccccc;width:16%;
+}
+.z_rgba_mima .sixDigitPassword-box .active {
+	background: url('/images/password-blink.gif') no-repeat center center;
+}
+.z_rgba_mima .sixDigitPassword-box b {
+	display: block;
+	margin: 10% auto 0;
+	width: 7px;
+	height: 7px;
+	overflow: hidden;
+	visibility:hidden;
+	background: url('/images/passeord-dot.png') no-repeat;
+}
+.z_rgba_mima .sixDigitPassword-box span {
+	position: absolute;
+	display: block;
+	left: 0px;
+	top: 0px;
+	height: 30px;
+	border: 1px solid rgba(82, 168, 236, .8);
+	border: 1px solid #00ffff\9;
+	border-radius: 2px;
+	visibility: hidden;
+	-webkit-box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.75), 0 0 8px rgba(82, 168, 236, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+.z_rgba_mima .ui-securitycore  .ui-form-item .ui-form-explain{
+	margin-top: 8px;
+}
+.z_rgba_mima .i-block{
+	display:inline-block;
+}
+.z_rgba_mima .six-password{
+	position: relative;
+	height:43px;
+	width:100%;
+	overflow: hidden;
+	vertical-align: middle;
+
+}
+.z_rgba_mima .pay_tanchuang{
+	width: 86%;
+	background-color: #fff;
+	position: absolute;
+	left: 7%;
+	top: 50%;
+	margin-top: -3.4rem;
+	border-radius: .08rem;
+	padding: .32rem .32rem .7rem;
+	box-sizing: border-box;
+	border:0;
+}
+.z_rgba_mima .pay_tanchuang h4	{
+	font-size: .35rem;
+	color: #212121;
+	line-height: .45rem;
+	font-family: 'Microsoft Yahei';
+	text-align: center;
+	font-weight: normal;
+	border-bottom: 1px solid #ebebeb;
+	padding-bottom: .4rem;
+}
+.z_rgba_mima .pay_tanchuang .b_money {
+	font-size: .6rem;
+	color: #212121;
+	line-height: 1.3rem;
+	font-family: 'Arial';
+	text-align: center;
+	font-weight: 600;
+	border-bottom: 1px solid #ebebeb;}
+.z_rgba_mima{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.8);
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 999;
+	display: none;
+}
+.z_rgba_mima .alieditContainer {
+	position:relative;
+	margin-top:10%;
+
+}
+.z_rgba_mima .alieditContainer .i-text {
+	position: absolute;
+	color: #fff;
+	opacity:0.2;
+	width:100%;
+	height:48px;
+	font-size:12px;
+	left:0;
+	-webkit-user-select:initial;
+	z-index:9;
+	padding:0;
+	borde:0;
+}
+.z_rgba_mima .alieditContainer .sixDigitPassword {
+	width:100%;
+	height:22px;
+	cursor:text;
+	outline:none;
+	position:relative;
+	padding:13px 0;
+	border:1px solid #ddd;
+	border-radius:5px;z-index: 9999;
+}
+.z_rgba_mima .alieditContainer .sixDigitPassword i {
+	width:16%;
+	height:10px;
+	float:left;
+	display:block;
+	padding:4px 0;
+	border-left:1px solid #cccccc;
+}
+.z_rgba_mima .alieditContainer .sixDigitPassword i:first-child {
+	border-left:0;
+}
+.z_rgba_mima .alieditContainer .sixDigitPassword i.active {
+	background-image: url("https://t.alipayobjects.com/images/rmsweb/T1nYJhXalXXXXXXXXX.gif");
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.z_rgba_mima .alieditContainer .sixDigitPassword b {
+	display:block;
+	margin:5px auto 4px auto;
+	width:7px;
+	height:7px;
+	overflow:hidden;
+	display:none;
+	background:#000;
+	border-radius:100%;
+}
+.z_rgba_mima .alieditContainer .sixDigitPassword .guangbiao {
+	width:15.8%;
+	height:48px;
+	position:absolute;
+	display:block;
+	left:0px;
+	top:-1px;
+}
+.b_zhifulist li.b_zfselect_card{ background-image: url(/images/b_arrow_right_03.png); background-repeat: no-repeat; background-size: 2%; background-position: 95% 50%;}
+.b_zhifulist li a{ width: 100%; height: 100%; display: block;}
+.b_zhifulist li .b_zficon1{ margin:.3rem .5rem;}
+.b_zfselect_card1 .b_zfselect1{ margin-top:.3rem;}
+.b_zhifulist li.b_zfselect_card1{ padding: .1rem .48rem;}
+.b_zhifulist li{ box-sizing: border-box; }
+
+
+/******************************************商品下架提示**************************************************/
+.b_error_area{ width: 100%; padding: .68rem 1.02rem; background-color: #fff; box-sizing: border-box; overflow:hidden;}
+.b_drop_down{ width: 74%; margin: 0 auto;}
+.b_drop_down dt{ width: 100%;}
+.b_drop_down dt img{ width: 100%; display: block;}
+.b_drop_down dd{ font-size: .36rem; line-height: .36rem; color: #5c5c5c; font-family: 'Microsoft Yahei'; margin-top: .45rem; text-align: center;}
+.b_sold_back{ width: 100%; margin-top: .88rem;}
+.b_sold_back a{ width: 45%; height: .86rem;font-size: .32rem; line-height: .86rem; font-family: 'Microsoft Yahei'; text-align: center; display: block; box-sizing: border-box; border-radius: .08rem;}
+.b_sold_back a.b_dropa1{ background-color: #cc1000; color: #fff; float: left;}
+.b_sold_back a.b_dropa2{ background-color: #fff; color: #cc1000; float: right; border: 1px solid #cc1000;}
+
+/******************************************系统错误**************************************************/
+.b_sys_tit{ font-size: .6rem; line-height: .6rem; color: #5c5c5c; font-family: 'Microsoft Yahei'; text-align: center; font-weight: normal; margin-top: .72rem;}
+.b_sys_cont{ font-size: .36rem; line-height: 1.12rem; color: #5c5c5c; font-family: 'Microsoft Yahei'; text-align: center; }
+.b_sys_e{ width: 84%; margin: 0 auto;}
+.b_sys_e img{ width: 100%; display: block;}
+.b_sys_back{ width: 35%; height: .86rem;font-size: .32rem; line-height: .86rem; font-family: 'Microsoft Yahei'; text-align: center; display: block; box-sizing: border-box; border-radius: .08rem; background-color: #cc1000; color: #fff; margin: .25rem auto; box-shadow: 0 0 4px 4px #eb7c7c;}
+
+/******************************************系统维护**************************************************/
+.b_sys_maintain{ width:52%; margin: 1.4rem auto;}
+.b_sys_maintain img{ width: 100%; display: block;}
+.b_sys_mcont{ font-size: .38rem; line-height: .38rem; color: #adadad; font-family: 'Microsoft Yahei'; text-align: center; margin-top: .56rem;}
+
+/******************************************问卷调查**************************************************/
+.b_sys_maintain1{ width:42%; margin: 1rem auto;}
+.b_sys_maintain1 img{ width: 100%; display: block;}
+
+
+
+/******************************************店铺分类**************************************************/
+.b_all_goods{ width: 100%; height: .8rem; background-color: #fff; display: block; margin: .24rem 0; padding: 0 .24rem; box-sizing: border-box; background-image: url(../images/b_arrow_right_03.png); background-position: 95% 50%; background-size: 3%; background-repeat: no-repeat; font-size: .34rem; line-height: .8rem; color: #333; font-family: 'Microsoft Yahei';}
+.b_bb_box{ width: 100%; background-color: #fff;}
+.b_bb_box ul li{ width: 49%; height: .8rem; padding: 0 .24rem; box-sizing: border-box; background-color: #E1DFDF; float: left; margin-top: .05rem;}
+.b_bb_box ul li a{ width: 100%; height: 100%; display: block; font-size: .25rem; line-height: .8rem; color: #333; font-family: 'Microsoft Yahei';}
+.b_bb_box ul li:nth-child(odd){ margin-right: 2%;}
+
+
+/******************************************退款售后**************************************************/
+.b_tkth li{ width: 100%; height: 1.2rem; border-bottom: 1px solid #ebebeb; padding: 0 .48rem; box-sizing: border-box; background-color: #fff;}
+.b_tkth li a{ width: 100%; height: 1.2rem; display: block; font-size: .34rem; line-height: 1.2rem; color: #212121; font-family: 'Microsoft Yahei'; background-image: url(../images/b_arrow_right_03.png); background-repeat: no-repeat; background-size: 3%; background-position: 96% 50%;}
+
+/******************************************客服中心**************************************************/
+.b_cust_box li{ background-color: #fff; margin-top: .24rem; width: 100%; padding: 0 .48rem; box-sizing: border-box; position: relative;}
+.b_cust_box li p{ width: 100%;font-size: .34rem; line-height: 1.1rem; color: #212121; font-family: 'Microsoft Yahei'; border-bottom: 1px solid #dcdcdc;}
+.b_cust_box li p.b_cus_number{ position: relative;}
+.b_cust_box li p.b_cus_number1{ border-bottom: 1px solid #dcdcdc;}
+.b_cust_box li p.b_cus_number{font-size: .34rem; line-height: 1.1rem; color: #cc1000; font-family: 'Microsoft Yahei';}
+.b_cust_box li a{ width: .8rem; height: .56rem; display: block; position: absolute; right: .48rem; bottom: .25rem;}
+.b_cust_box li a.teshu{ width: .8rem; height: .56rem; display: block; position: absolute; right: .48rem; bottom: 1.35rem;}
+.b_cust_box li a img{ width: 100%; height: 100%; display: block;}
+
+/******************************************平台入驻协议**************************************************/
+.b_gipl_cont{ padding:.24rem .48rem 1.5rem; box-sizing: border-box; width: 100%;}
+.b_gipl_cont p{ font-size: .3rem; line-height: .5rem; color: #212121; font-family: 'Microsoft Yahei'; }
+.b_gipl_cont h4{ font-size: .34rem; line-height: .5rem; color: #212121; font-family: 'Microsoft Yahei'; }
+.b_getin_btn{ width: 100%; height: 1.2rem; padding: .25rem .48rem; box-sizing: border-box; background-color: #f4f4f4; position: fixed; left: 0; bottom: 0; border-top: 1px solid #eae9e9;}
+.b_getin_btn a{ width: 45%; height:.7rem; display: block; font-size: .34rem; line-height: .7rem; color: #fff; font-family: 'Microsoft Yahei'; text-align: center;}
+.b_gibtn1{ float: left; background-color: #AAAAAA;}
+.b_gibtn2{ float: right; background-color: #cc1000;}
+.b_gipl_cont table{width:100%}
+
+/******************************************提现到支付宝**************************************************/
+.b_txalipay{ overflow: hidden;}
+.b_txalipay label{ width:100%; padding: 0 .45rem; box-sizing: border-box; background-color: #fff; display: block;}
+.b_underline{ border-bottom: 1px solid #fdfdfd;}
+.b_txalipay label span{ width: 24%; height: 1.2rem; font-size: .3rem; line-height: 1.2rem; color: #212121; font-family: 'Microsoft Yahei'; }
+.b_txalipay label input{ width: 76%; padding-left: 3%; box-sizing: border-box; height: 1.2rem; font-size: .3rem; line-height: 1.2rem; color: #212121; font-family: 'Microsoft Yahei'; }
+.b_txalipay label p{ border-top: 1px solid #fdfdfd; font-size: .26rem; line-height: .6rem; color: #212121; font-family: 'Microsoft Yahei';}
+.b_txalipay label p span{ color: #cc1000; display: inline-block; width: auto; line-height: 1.15rem;}
+
+
+
+
+/******************************************提现**************************************************/
+.tixian-1{width: 100%; overflow: hidden; margin-top:.25rem;}
+.tixian-1 ul li{width: 91%; padding: 0 .34rem; overflow: hidden; height: 1.2rem; line-height: 1.2rem; background-color: #fff; margin-top: 1px;}
+.tixian-1 ul li a{display: block; width:100%; height:100%;}
+.tixian-1 ul li a img:nth-child(1){width: 10%; float: left; margin-top: .25rem;}
+.tixian-1 ul li a p{font-size: .3rem; color: #333; float: left; margin-left: .4rem;}
+.tixian-1 ul li a img:nth-child(3){width: 2.5%; float: right; margin-top: .4rem;}
+.tixian-2{width: 91%; padding: 0 .34rem; overflow: hidden; height: .6rem; line-height: .6rem;}
+.tixian-2 p{font-size: .28rem; color: #333;}
+.tixian-3{width: 100%; overflow: hidden;}
+.tixian-3 ul li{width: 91%; padding: 0 .34rem; overflow: hidden; height: 1.2rem; background-color: #fff; margin-top: 1px;}
+.tixian-3 ul li a{display: block;}
+.tixian-3 ul li a img:nth-child(1){width: 10%; float: left; margin-top: .25rem;}
+.tixian-3 ul li .tixian-4{width: 70%; overflow: hidden; float: left; margin-left: .4rem;}
+.tixian-3 ul li .tixian-4 p:nth-child(1){font-size: .3rem; color: #333; margin-top: .22rem;}
+.tixian-3 ul li .tixian-4 p:nth-child(2){font-size: .2rem; color: #999;}
+.tixian-3 ul li a img:nth-child(3){width: 2.5%; float: right; margin-top: .4rem;}
+
+.tx1 { width: 100%; overflow: hidden; background-color: #fff; margin-top: .22rem; }
+.tx1 ul { width: 100%; margin:0 auto; overflow: hidden; }
+.tx1 ul li { height: 1.2rem; width: 100%; overflow: hidden; line-height: 1.2rem; border-bottom: 1px solid #ebebeb }
+.tx1 ul li div { font-size: .3rem; color: #333; width: 30%; padding-left: 6%; float: left; }
+.tx1 ul li input { width: 58%; float: left;padding-right:6%; height: 1.2rem;font-size: .3rem; color: #333; }
+.tx1 ul li div:nth-child(2) {width: 58%; float: right;padding-right:6%;padding-left: 0;}
+.tx1 ul li div:nth-child(2) p,.tx1 ul li div:nth-child(2) img { float: right; }
+.tx1 ul li div:nth-child(2) p { font-size: .3rem; color: #666 }
+.tx1 ul li div:nth-child(2) img { margin-top: .4rem; width: .4rem; }
+
+.tx2 { width: 100%; overflow: hidden; background-color: #fff; margin-top: .22rem; }
+.tx2 ul { width: 100%; margin:0 auto; overflow: hidden; }
+.tx2 ul li { height: 1.2rem; width: 100%; overflow: hidden; line-height: 1.2rem;}
+.tx2 ul li div { font-size: .3rem; color: #333; width: 30%; padding-left: 6%; float: left; }
+.tx2 ul li div:nth-child(2) {width: 64%; float: left;border-bottom: 1px solid #ebebeb; padding-left: 0; height: 1.1rem; overflow: hidden; }
+.tx2 ul li input { width:100%;height: 1.2rem;font-size: .3rem; color: #333; border-bottom: 1px solid #ebebeb  }
+.tx-y { width: 100%; padding-left: 6%; line-height: .6rem; font-size: .26rem; color: #666}
+.tx-y span { color: #cc1000; }
+.tx-q { width: 90%; margin:.6rem auto; height: .9rem;  text-align: center;line-height: .9rem; font-size: .3rem; color: #fff; background-color: #cc1000;border-radius:.1rem; display: block; }
+
+/**************************************列表滚动效果**************************************/
+.wrapper {overflow-y: hidden;}
+
+/**************************************选择支付方式**************************************/
+.b_zhifulist { overflow: hidden; }
+.b_zhifulist li{ width: 100%; padding: .35rem .48rem; background-color: #fff; border-bottom: 1px solid #ebebeb;}
+.b_zhifulist li:after{ content: ''; display: block; width: 0; height: 0; visibility: hidden; clear: both;}
+.b_zhifulist li .b_zfselect{ width:.48rem; height: .48rem; float: left;}
+.b_zhifulist li .b_zfselect img{ width: 100%; display: block;}
+.b_zhifulist li .b_zficon{ width: .54rem; height: .54rem; float: left; margin:0 .5rem;}
+.b_zhifulist li .b_zficon img{ width: 100%; display: block;}
+.b_zhifulist li p{ font-size: .3rem; color: #212121; line-height: .54rem; font-family: 'Microsoft Yahei'; float: left;}

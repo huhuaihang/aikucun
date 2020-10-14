@@ -1,0 +1,44 @@
+{
+    "name": "yunoso/ytb",
+    "keywords": ["yunoso", "ytb"],
+    "homepage": "http://yun.yuntaobang.cn/",
+    "require": {
+        "php": ">=5.6.0",
+        "yiisoft/yii2": "~2.0.5",
+        "cornernote/yii2-ace": "^1.0",
+        "blueimp/jquery-file-upload": "^9.18",
+        "yurkinx/yii2-image": "^1.1",
+        "yiisoft/yii2-smarty": "^2.0",
+        "bower-asset/echarts": "^3.6",
+        "kucha/ueditor": "*",
+        "2amigos/qrcode-library": "^1.1",
+        "phpoffice/phpexcel": "^1.8",
+        "phpoffice/phpspreadsheet": "^1.1",
+        "bower-asset/blueimp-md5": "^2.10",
+        "workerman/workerman": "^3.5",
+        "iamcal/php-emoji": "^1.4",
+        "saviorlv/yii2-dysms": "dev-master",
+        "aliyuncs/oss-sdk-php": "^2.3",
+        "yiisoft/yii2-redis": "^2.0",
+        "jpush/jpush": "*"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-gii": "~2.0.0"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset":{
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    }
+}
